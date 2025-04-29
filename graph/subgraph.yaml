@@ -6,7 +6,7 @@ schema:
 dataSources:
   - kind: ethereum
     name: Template
-    network: polygon-amoy
+    network: matic
     source:
       abi: Token
       address: "0xbF7970D56a150cD0b60BD08388A4A75a27777777"

@@ -6,7 +6,7 @@ schema:
 dataSources:
   - kind: ethereum
     name: Template
-    network: polygon-amoy
+    network: {{network}}
     source:
       abi: Token
       address: "{{token}}"
