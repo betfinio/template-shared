@@ -9,8 +9,8 @@ dataSources:
     network: polygon-amoy
     source:
       abi: Token
-      address: "0xbF7970D56a150cD0b60BD08388A4A75a27777777"
-      startBlock: 53901980
+      address: "{{token}}"
+      startBlock: {{startBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
