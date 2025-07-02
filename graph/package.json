@@ -4,17 +4,20 @@
 		"codegen": "graph codegen",
 		"dev": "bun run codegen && bun run build:dev && bun run deploy:dev",
 		"prod": "bun run codegen && bun run build:prod && bun run deploy:prod",
-		"prepare:dev": "bunx mustache config/polygon-amoy.json template.subgraph.yaml > subgraph.yaml",
-		"prepare:prod": "bunx mustache config/matic.json template.subgraph.yaml > subgraph.yaml",
+		"prepare:dev": "chmod +x scripts/prepare-subgraph.sh && ./scripts/prepare-subgraph.sh dev",
+		"prepare:prod": "chmod +x scripts/prepare-subgraph.sh && ./scripts/prepare-subgraph.sh prod",
+		"prepare:local": "chmod +x scripts/prepare-subgraph.sh && ./scripts/prepare-subgraph.sh local",
 		"build:dev": "bun run prepare:dev && graph build ",
 		"build:prod": "bun run prepare:prod && graph build",
 		"build:silent": "graph build",
 		"deploy:dev": "graph deploy --node https://api.studio.thegraph.com/deploy/ template-dev --network polygon-amoy",
 		"deploy:prod": "graph deploy --node https://api.studio.thegraph.com/deploy/ template-prod --network matic",
-		"test": "graph test"
+		"test": "graph test",
+		"create-local": "graph create template-dev --node http://127.0.0.1:8020",
+		"deploy-local": "graph deploy template-dev --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
 	},
 	"dependencies": {
-		"@graphprotocol/graph-cli": "^0.97.0",
+		"@graphprotocol/graph-cli": "^0.97.1",
 		"@graphprotocol/graph-ts": "^0.38.0"
 	},
 	"devDependencies": {
